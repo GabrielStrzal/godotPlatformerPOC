@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/run_04_128x128.png-4f220f1f9298d0ccdff05399230aedba.stex"
+path="res://.import/dark_tileset_64x64.png-595fce4c79c4e1708250e07a8855e900.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/PlayerDog/run_04_128x128.png"
-dest_files=[ "res://.import/run_04_128x128.png-4f220f1f9298d0ccdff05399230aedba.stex" ]
+source_file="res://dark_tileset_64x64.png"
+dest_files=[ "res://.import/dark_tileset_64x64.png-595fce4c79c4e1708250e07a8855e900.stex" ]
 
 [params]
 
