@@ -6,21 +6,32 @@ const SPEED = 400
 const JUMP_HEIGHT = -650
 var motion = Vector2()
 
+var isAttacking = false;
+
 
 func _physics_process(delta):
 	motion.y += GRAVITY
 	
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("ui_right") && isAttacking == false:
 		motion.x = SPEED
 		$Sprite.flip_h = false
 		$Sprite.play("run")
-	elif Input.is_action_pressed("ui_left"):
+		$AttackArea.set_scale(Vector2(1, 1))
+	elif Input.is_action_pressed("ui_left") && isAttacking == false:
 		motion.x = -SPEED
 		$Sprite.flip_h = true
 		$Sprite.play("run")
+		$AttackArea.set_scale(Vector2(-1, 1))
+	
 	else:
-		motion.x = 0
-		$Sprite.play("idle")
+		motion.x = 0;
+		if isAttacking == false:
+			$Sprite.play("idle")
+
+	if Input.is_action_pressed("attack"):
+		$AttackArea/CollisionShape2D.disabled = false
+		$Sprite.play("slash")
+		isAttacking = true;	
 	
 	if is_on_floor():
 		#motion.y = 0
@@ -32,3 +43,9 @@ func _physics_process(delta):
 	motion = move_and_slide(motion, UP)
 	
 	pass
+
+
+func _on_Sprite_animation_finished():
+	if $Sprite.animation == "slash":
+		$AttackArea/CollisionShape2D.disabled = true;
+		isAttacking = false;

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://black_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://enemy.tscn" type="PackedScene" id=3]
 
 [node name="World" type="Node"]
 
@@ -15,3 +16,7 @@ __meta__ = {
 }
 
 [node name="player" parent="." instance=ExtResource( 2 )]
+
+[node name="enemy" parent="." instance=ExtResource( 3 )]
+position = Vector2( 683.849, 251.686 )
+z_index = -1

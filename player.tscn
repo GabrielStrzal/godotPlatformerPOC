@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/PlayerDog/idle_128x128.png" type="Texture" id=2]
@@ -10,9 +10,29 @@
 [ext_resource path="res://Sprites/PlayerDog/run_06_128x128.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/PlayerDog/run_07_128x128.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/PlayerDog/jump_128x128.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/PlayerDog/char_atlas_128x128_2.png" type="Texture" id=11]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 0, 256, 190, 128 )
 
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 190, 256, 190, 128 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 380, 256, 190, 128 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 570, 256, 190, 128 )
+
+[sub_resource type="SpriteFrames" id=5]
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
@@ -28,60 +48,44 @@ animations = [ {
 "loop": true,
 "name": "jump",
 "speed": 10.0
+}, {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "slash",
+"speed": 8.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=2]
-
-custom_solver_bias = 0.0
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 14, 55.4961 )
 
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 42.6434, 24.4917 )
+
 [node name="player" type="KinematicBody2D"]
-
-position = Vector2( 291.212, 102.132 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
+position = Vector2( 320.718, 104.898 )
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
-[node name="Sprite" type="AnimatedSprite" parent="." index="0"]
-
-frames = SubResource( 1 )
-animation = "idle"
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 5 )
+animation = "slash"
+frame = 3
 playing = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 8 )
-shape = SubResource( 2 )
-_sections_unfolded = [ "Transform" ]
+shape = SubResource( 6 )
 
-[node name="Camera2D" type="Camera2D" parent="." index="2"]
-
-anchor_mode = 1
-rotating = false
+[node name="Camera2D" type="Camera2D" parent="."]
 current = true
-zoom = Vector2( 1, 1 )
-limit_left = -10000000
-limit_top = -10000000
-limit_right = 10000000
-limit_bottom = 10000000
-limit_smoothed = false
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
-smoothing_enabled = false
-smoothing_speed = 5.0
-offset_v = 0.0
-offset_h = 0.0
-drag_margin_left = 0.2
-drag_margin_top = 0.2
-drag_margin_right = 0.2
-drag_margin_bottom = 0.2
-editor_draw_screen = true
-editor_draw_limits = false
-editor_draw_drag_margin = false
 
+[node name="AttackArea" type="Area2D" parent="." groups=[
+"attack",
+]]
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2( 42.7226, 10.1428 )
+shape = SubResource( 7 )
+disabled = true
+[connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]
