@@ -1,31 +1,38 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://b7v6h37qdk1yp"]
 
-[ext_resource path="res://icon.png" type="Texture2D" id=1]
-[ext_resource path="res://enemy.gd" type="Script" id=2]
+[ext_resource type="Texture2D" uid="uid://dbg5gt5wit4ed" path="res://icon.png" id="1"]
+[ext_resource type="Script" path="res://enemy.gd" id="2"]
 
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 1 ) ],
+[sub_resource type="SpriteFrames" id="1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1")
+}],
 "loop": true,
-"name": "default",
+"name": &"default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 1 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1")
+}],
 "loop": true,
-"name": "idle",
+"name": &"idle",
 "speed": 5.0
-} ]
+}]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 35.3726, 36.0551 )
+[sub_resource type="RectangleShape2D" id="2"]
+size = Vector2(70.7452, 72.1102)
 
 [node name="enemy" type="Area2D"]
-script = ExtResource( 2 )
+script = ExtResource("2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-frames = SubResource( 1 )
-animation = "idle"
+sprite_frames = SubResource("1")
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
+shape = SubResource("2")
+
 [connection signal="area_entered" from="." to="." method="_on_enemy_area_entered"]

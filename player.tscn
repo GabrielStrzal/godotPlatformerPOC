@@ -79,7 +79,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("2")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("3")
 }, {
 "duration": 1.0,
@@ -87,7 +87,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"slash",
-"speed": 8.0
+"speed": 20.0
 }]
 
 [sub_resource type="RectangleShape2D" id="6"]

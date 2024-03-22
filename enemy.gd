@@ -16,5 +16,6 @@ func _process(delta):
 
 func _on_enemy_area_entered(area):
 	if area.is_in_group("attack"):
+		print("Enemy got dammaged")
 		dead = true;
 		enemyLife = enemyLife - 1;

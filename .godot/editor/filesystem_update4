@@ -2,3 +2,5 @@ res://default_env.tres
 res://World.tscn
 res://player.tscn
 res://player.gd
+res://enemy.gd
+res://enemy.tscn

@@ -27,15 +27,15 @@ func _physics_process(delta):
 		motion.x = 0;
 		if isAttacking == false:
 			$Sprite2D.play("idle")
-
-	if Input.is_action_just_pressed("attack"):
-		$AttackArea/CollisionShape2D.disabled = false
-		isAttacking = true;	
-		print("Attack pressed")
-		$Sprite2D.play("slash")
 		
 	
 	if is_on_floor():
+		if Input.is_action_just_pressed("attack"):
+			print("Attack pressed")
+			$AttackArea/CollisionShape2D.disabled = false
+			isAttacking = true;	
+			$Sprite2D.play("slash")
+		
 		#motion.y = 0
 		if Input.is_action_just_pressed("ui_up"):
 			motion.y = JUMP_HEIGHT
@@ -51,7 +51,7 @@ func _physics_process(delta):
 
 
 func _on_Sprite_animation_finished():
-	print("Attack animation finished")
 	if $Sprite2D.animation == "slash":
+		print("Attack animation finished")
 		$AttackArea/CollisionShape2D.disabled = true;
 		isAttacking = false;
