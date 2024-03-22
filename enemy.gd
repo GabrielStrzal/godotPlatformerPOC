@@ -8,7 +8,7 @@ func _ready():
 	
 func _process(delta):
 	if dead == false:
-		$AnimatedSprite.play("idle")
+		$AnimatedSprite2D.play("idle")
 	if enemyLife <= 0:
 		queue_free();
 

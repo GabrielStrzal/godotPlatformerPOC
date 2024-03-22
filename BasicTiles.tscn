@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Sprites/Tiles/basic_tileset_64x64.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Tiles/basic_tileset_64x64.png" type="Texture2D" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -9,7 +9,7 @@ extents = Vector2( 32, 32 )
 
 [node name="BasicTiles" type="Node"]
 
-[node name="001" type="Sprite" parent="." index="0"]
+[node name="001" type="Sprite2D" parent="." index="0"]
 
 editor/display_folded = true
 texture = ExtResource( 1 )
@@ -33,9 +33,9 @@ bounce = 0.0
 
 position = Vector2( 32, 32 )
 shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform3D" ]
 
-[node name="002" type="Sprite" parent="." index="1"]
+[node name="002" type="Sprite2D" parent="." index="1"]
 
 editor/display_folded = true
 position = Vector2( 128, 0 )
@@ -60,9 +60,9 @@ bounce = 0.0
 
 position = Vector2( 32, 32 )
 shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform3D" ]
 
-[node name="003" type="Sprite" parent="." index="2"]
+[node name="003" type="Sprite2D" parent="." index="2"]
 
 editor/display_folded = true
 position = Vector2( 256, 0 )
@@ -87,9 +87,9 @@ bounce = 0.0
 
 position = Vector2( 32, 32 )
 shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform3D" ]
 
-[node name="004" type="Sprite" parent="." index="3"]
+[node name="004" type="Sprite2D" parent="." index="3"]
 
 editor/display_folded = true
 position = Vector2( 0, 128 )
@@ -114,9 +114,9 @@ bounce = 0.0
 
 position = Vector2( 32, 32 )
 shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform3D" ]
 
-[node name="005" type="Sprite" parent="." index="4"]
+[node name="005" type="Sprite2D" parent="." index="4"]
 
 editor/display_folded = true
 position = Vector2( 128, 128 )
@@ -141,9 +141,9 @@ bounce = 0.0
 
 position = Vector2( 32, 32 )
 shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform3D" ]
 
-[node name="006" type="Sprite" parent="." index="5"]
+[node name="006" type="Sprite2D" parent="." index="5"]
 
 editor/display_folded = true
 position = Vector2( 256, 128 )
@@ -168,9 +168,9 @@ bounce = 0.0
 
 position = Vector2( 32, 32 )
 shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform3D" ]
 
-[node name="007" type="Sprite" parent="." index="6"]
+[node name="007" type="Sprite2D" parent="." index="6"]
 
 editor/display_folded = true
 position = Vector2( 0, 256 )
@@ -195,9 +195,9 @@ bounce = 0.0
 
 position = Vector2( 32, 32 )
 shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform3D" ]
 
-[node name="008" type="Sprite" parent="." index="7"]
+[node name="008" type="Sprite2D" parent="." index="7"]
 
 editor/display_folded = true
 position = Vector2( 128, 256 )
@@ -222,9 +222,9 @@ bounce = 0.0
 
 position = Vector2( 32, 32 )
 shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform3D" ]
 
-[node name="009" type="Sprite" parent="." index="8"]
+[node name="009" type="Sprite2D" parent="." index="8"]
 
 editor/display_folded = true
 position = Vector2( 256, 256 )
@@ -249,6 +249,6 @@ bounce = 0.0
 
 position = Vector2( 32, 32 )
 shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform3D" ]
 
 
